@@ -1,0 +1,1 @@
+<strong>Welcome to start page!</strong>

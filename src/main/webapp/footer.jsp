@@ -1,0 +1,1 @@
+Sergey Nikiforov &copy; 2015
