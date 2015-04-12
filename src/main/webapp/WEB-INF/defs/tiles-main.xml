@@ -4,13 +4,14 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="main" template="/main.jsp">
+    <definition name="base" template="/main.jsp">
+        <put-attribute name="title" value="AnswerQuestion"/>
         <put-attribute name="header" value="/header.jsp"/>
         <put-attribute name="content" value=""/>
         <put-attribute name="footer" value="/footer.jsp"/>
     </definition>
 
-    <definition name="home" extends="main">
+    <definition name="home" extends="base">
         <put-attribute name="title" value="Welcome to AnswerQuestion"/>
         <put-attribute name="content" value="/home.jsp"/>
     </definition>

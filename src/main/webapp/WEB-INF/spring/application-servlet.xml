@@ -11,6 +11,10 @@
 
     <bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
     <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-        <property name="definitions" value="WEB-INF\tiles\views.xml"/>
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/defs/tiles-main.xml</value>
+            </list>
+        </property>
     </bean>
 </beans>
