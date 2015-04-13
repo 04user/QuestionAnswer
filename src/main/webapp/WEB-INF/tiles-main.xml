@@ -4,15 +4,15 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="base" template="/main.jsp">
+    <definition name="base" template="/WEB-INF/views/main.jsp">
         <put-attribute name="title" value="AnswerQuestion"/>
-        <put-attribute name="header" value="/header.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
         <put-attribute name="content" value=""/>
-        <put-attribute name="footer" value="/footer.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp"/>
     </definition>
 
     <definition name="home" extends="base">
         <put-attribute name="title" value="Welcome to AnswerQuestion"/>
-        <put-attribute name="content" value="/home.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
     </definition>
 </tiles-definitions>
