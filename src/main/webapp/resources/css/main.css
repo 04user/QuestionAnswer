@@ -1,0 +1,45 @@
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 40px;
+}
+
+.top-bar {
+    min-height: 30px !important;
+    background-color: #f0f0f0;
+}
+
+.top-bar a {
+    padding: 5px 10px !important;
+}
+
+.right {
+    float: right !important;
+}
+
+.header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header-logo {
+    margin-left: 30px;
+}
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer p {
+    text-align: center !important;
+    padding: 5px !important;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    background-color: #80cada !important;
+}
+
+.btn-success {
+    background-image: linear-gradient(to bottom, #80dd80 0, #419641 100%);
+}
