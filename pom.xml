@@ -12,6 +12,7 @@
         <java.version>1.8</java.version>
         <springframework.version>4.1.6.RELEASE</springframework.version>
         <tiles.version>3.0.5</tiles.version>
+        <hibernate.version>4.3.6.Final</hibernate.version>
     </properties>
 
     <dependencyManagement>
@@ -75,6 +76,22 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.4.3.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.185</version>
         </dependency>
     </dependencies>
 
