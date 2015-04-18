@@ -15,4 +15,9 @@
         <put-attribute name="title" value="Welcome to AnswerQuestion"/>
         <put-attribute name="content" value="/WEB-INF/views/home.jsp"/>
     </definition>
+
+    <definition name="question" extends="base">
+        <put-attribute name="title" value="Add Question"/>
+        <put-attribute name="content" value="/WEB-INF/views/question.jsp"/>
+    </definition>
 </tiles-definitions>
