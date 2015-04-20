@@ -19,6 +19,8 @@
         </property>
     </bean>
 
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
     <jdbc:embedded-database id="embeddedDataSource" type="H2"/>
 
     <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -42,5 +44,5 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <mvc:annotation-driven conversion-service="conversionService"/>
+    <import resource="security.xml"/>
 </beans>

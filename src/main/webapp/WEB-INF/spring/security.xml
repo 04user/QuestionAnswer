@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean:beans xmlns="http://www.springframework.org/schema/security"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:bean="http://www.springframework.org/schema/beans"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <http use-expressions="false">
+        <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+    </http>
+
+
+    <!--<http pattern="/**" security="none"/>-->
+
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin" authorities="ROLE_USER"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+</bean:beans>
