@@ -20,4 +20,9 @@
         <put-attribute name="title" value="Add Question"/>
         <put-attribute name="content" value="/WEB-INF/views/question.jsp"/>
     </definition>
+
+    <definition name="login" extends="base">
+        <put-attribute name="title" value="Please sign in"/>
+        <put-attribute name="content" value="/WEB-INF/views/login.jsp"/>
+    </definition>
 </tiles-definitions>
