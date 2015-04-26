@@ -8,17 +8,18 @@
        http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-    <http use-expressions="false">
+    <http auto-config="false" use-expressions="false">
+        <intercept-url pattern="/question" access="ROLE_USER"/>
         <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <form-login login-page="/login.jsp"/>
-        <logout/>
+        <form-login login-page="/signin"/>
+        <logout />
     </http>
 
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="admin" password="admin" authorities="ROLE_USER"/>
+                <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>
