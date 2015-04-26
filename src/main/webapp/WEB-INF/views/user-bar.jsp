@@ -4,7 +4,7 @@
     <div class="container">
         <ul class="nav navbar-nav right">
             <li role="presentation" class="nav-item"><a href="<c:url value="/login"/>" class="navbar-link">Sign in</a></li>
-            <li role="presentation" class="nav-item"><a href="#" class="navbar-link">Registration</a></li>
+            <li role="presentation" class="nav-item"><a href="<c:url value="/registration"/>" class="navbar-link">Registration</a></li>
         </ul>
     </div>
 </nav>
