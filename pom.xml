@@ -28,7 +28,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -78,20 +77,27 @@
             <version>1.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
+        <!-- Persistence layer -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>1.4.3.RELEASE</version>
         </dependency>
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.185</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jolbox</groupId>
+            <artifactId>bonecp</artifactId>
+            <version>0.8.0.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -102,7 +108,7 @@
     </dependencies>
 
     <repositories>
-        <!-- For developing against latest Spring milestones -->
+        <!-- For developing against latest Spring release -->
         <repository>
             <id>org.springframework.maven.release</id>
             <url>http://repo.spring.io/release</url>

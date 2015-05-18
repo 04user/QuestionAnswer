@@ -4,27 +4,31 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="ua.nikiforov.qa">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="conversionService">
-        <property name="converters">
-            <set>
-                <bean class="ua.nikiforov.qa.converter.StringAsTagsList"/>
-            </set>
-        </property>
-    </bean>
+    <!-- BoneCP configuration -->
+    <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+          p:driverClass="org.h2.Driver"
+          p:jdbcUrl="jdbc:h2:~/question-answer"
+          p:username="sa"
+          p:password=""
+          p:idleConnectionTestPeriod="60"
+          p:idleMaxAge="240"
+          p:minConnectionsPerPartition="10"
+          p:maxConnectionsPerPartition="30"
+          p:partitionCount="3"
+          p:acquireIncrement="5"
+    />
 
-    <jdbc:embedded-database id="embeddedDataSource" type="H2"/>
-
-    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceProviderClass"
                   value="org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider"/>
-        <property name="dataSource" ref="embeddedDataSource"/>
+        <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="ua.nikiforov.qa.entities"/>
         <property name="jpaProperties">
             <props>
@@ -37,10 +41,8 @@
     <jpa:repositories base-package="ua.nikiforov.qa.repositories"/>
 
     <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
-        <property name="dataSource" ref="embeddedDataSource"/>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
-    <mvc:annotation-driven conversion-service="conversionService"/>
 </beans>
